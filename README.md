@@ -31,4 +31,4 @@ Este proyecto implementa varios patrones de diseño como **Singleton**, **Builde
 
 1. Clona este repositorio en tu máquina local:
    ```bash
-   git clone https://github.com/tuusuario/DesignPatternsAutomobiles.git
+   git clone (https://github.com/Danielch2001/TallerPatrones.git)
