@@ -27,8 +27,8 @@ namespace Best_Practices.Controllers
         public IActionResult Index()
         {
             var model = new HomeViewModel();
-            model.Vehicles = VehicleCollection.Instance.Vehicles;
-            string error = Request.Query.ContainsKey("error") ? Request.Query["error"].ToString() : null;
+			model.Vehicles = _vehicleRepository.GetVehicles();
+			string error = Request.Query.ContainsKey("error") ? Request.Query["error"].ToString() : null;
             ViewBag.ErrorMessage = error;
 
             return View(model);

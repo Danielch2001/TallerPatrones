@@ -9,28 +9,28 @@ namespace Best_Practices.Repositories
 {
     public class MyVehiclesRepository : IVehicleRepository
     {
-        private readonly VehicleCollection _memoryCollection;
+        private readonly MemoryCollection _memoryCollection = MemoryCollection.Instance;
 
         public MyVehiclesRepository()
         {
-            _memoryCollection = VehicleCollection.Instance;
+            
         }
 
-        public void AddVehicle(Vehicle vehicle)
-        {
-            _memoryCollection.Vehicles.Add(vehicle);
-        }
+		public void AddVehicle(Vehicle vehicle)
+		{
+			_memoryCollection.Vehicles.Add(vehicle);
+		}
 
-        public Vehicle Find(string id)
-        {
-           return  _memoryCollection.Vehicles.FirstOrDefault(v => v.ID.Equals(new Guid(id)));
-        }
+		public Vehicle Find(string id)
+		{
+			return _memoryCollection.Vehicles.FirstOrDefault(v => v.ID.Equals(new Guid(id)));
+		}
 
-        public ICollection<Vehicle> GetVehicles()
-        {
-            return _memoryCollection.Vehicles;
-        }
+		public ICollection<Vehicle> GetVehicles()
+		{
+			return _memoryCollection.Vehicles;
+		}
 
-        
-    }
+
+	}
 }
