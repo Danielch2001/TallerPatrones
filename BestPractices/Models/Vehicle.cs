@@ -19,17 +19,19 @@ namespace Best_Practices.Models
         public string Model { get; set; }
         public double Gas { get; set; }
         public double FuelLimit { get; set; }
+        public int Year { get; set; }
 
         #endregion
 
         #region Constructors
 
-        public Vehicle(string color, string brand, string model, double fuelLimit = 10)
+        public Vehicle(string color, string brand, string model,int year, double fuelLimit = 10)
         {
             ID = Guid.NewGuid();
             Color = color;
             Brand = brand;
             Model = model;
+            Year = year;
             FuelLimit = fuelLimit;
         }
 

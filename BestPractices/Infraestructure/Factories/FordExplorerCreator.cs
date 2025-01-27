@@ -11,7 +11,7 @@ namespace Best_Practices.Infraestructure.Factories
     {
         public override Vehicle Create()
         {
-            var builder = new CarBuilder();
+            var builder = new CarModelBuilder();
             return builder
                 .SetModel("Explorer")
                 .SetColor("Black")

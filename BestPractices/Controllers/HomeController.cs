@@ -1,5 +1,6 @@
 ﻿using Best_Practices.Infraestructure.Factories;
 using Best_Practices.Infraestructure.Singletons;
+using Best_Practices.ModelBuilders;
 using Best_Practices.Models;
 using Best_Practices.Repositories;
 using Microsoft.AspNetCore.Mvc;
@@ -46,13 +47,24 @@ namespace Best_Practices.Controllers
         [HttpGet]
         public IActionResult AddExplorer()
         {
-            var factory = new FordExplorerCreator();
-            var vehicle = factory.Create();
-            _vehicleRepository.AddVehicle(vehicle);
+            var builder = new CarModelBuilder();
+            _vehicleRepository.AddVehicle(builder
+                .SetModel("Explorer")
+                .SetColor("black")
+                .Build());
             return Redirect("/");
         }
 
-        [HttpGet]
+		[HttpGet]
+		public IActionResult AddEscape()
+		{
+			var factory = new FordEscapeCreator();  // Usamos la fábrica Escape
+			var vehicle = factory.Create();
+			_vehicleRepository.AddVehicle(vehicle);
+			return Redirect("/");
+		}
+
+		[HttpGet]
         public IActionResult StartEngine(string id)
         {
             try
